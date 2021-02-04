@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .submit {
+            background-color: #534caf;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 80%;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .col-100 {
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .col-100,
+            .submit {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="col-100">
+                <input type="text" id="title" name="title" placeholder="Title">
+            </div>
+            <div class="col-100">
+                <textarea id="description" name="description" placeholder="Description" style="height:200px"></textarea>
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
