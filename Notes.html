@@ -52,7 +52,6 @@
 
 <body>
     <div class="container">
-        <form>
             <div class="col-100">
                 <input type="text" id="title" name="title" placeholder="Title" oninput="changeTitle(event)">
             </div>
@@ -60,8 +59,7 @@
                 <textarea id="description" name="description" placeholder="Description" style="height:200px"
                     oninput="changeDescription(event)"></textarea>
             </div>
-            <button class="submit">Submit</button>
-        </form>
+            <button class="submit" onclick="submit()">Submit</button>
     </div>
 
 </body>
