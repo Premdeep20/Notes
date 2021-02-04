@@ -32,6 +32,7 @@ function submit() {
 
 function getList() {
     let notes = JSON.parse(localStorage.getItem('NOTES'));
+    document.getElementById("list").innerHTML = '';
     notes.map((note) => {
         let item = `<div class="cardContainer">
             <div class="card">
