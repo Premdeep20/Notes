@@ -39,10 +39,24 @@
             margin: 10px auto;
         }
 
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            margin: 8px 0px;
+            word-break: break-word;
+        }
+
+        .list {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
         @media screen and (max-width: 600px) {
 
             .col-100,
-            .submit {
+            .submit,
+            .list {
                 width: 100%;
                 margin-top: 0;
             }
@@ -52,16 +66,19 @@
 
 <body>
     <div class="container">
-            <div class="col-100">
-                <input type="text" id="title" name="title" placeholder="Title" oninput="changeTitle(event)">
-            </div>
-            <div class="col-100">
-                <textarea id="description" name="description" placeholder="Description" style="height:200px"
-                    oninput="changeDescription(event)"></textarea>
-            </div>
-            <button class="submit" onclick="submit()">Submit</button>
+        <div class="col-100">
+            <input type="text" id="title" name="title" placeholder="Title" oninput="changeTitle(event)">
+        </div>
+        <div class="col-100">
+            <textarea id="description" name="description" placeholder="Description" style="height:200px"
+                oninput="changeDescription(event)"></textarea>
+        </div>
+        <button class="submit" onclick="submit()">Submit</button>
     </div>
-
+    <div id="list" class="list">
+        <h1>List of Notes</h1>
+    </div>
 </body>
 <script src="Notes.js"></script>
+
 </html>

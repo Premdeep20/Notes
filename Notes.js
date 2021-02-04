@@ -26,5 +26,24 @@ function submit() {
         localStorage.setItem('NOTES', JSON.stringify(notes));
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
+        getList();
     }
+}
+
+function getList() {
+    let notes = JSON.parse(localStorage.getItem('NOTES'));
+    document.getElementById("list").innerHTML = '';
+    notes.map((note) => {
+        let item = `<div class="cardContainer">
+            <div class="card">
+                <h2>${note.title}</h2>
+                <p>${note.description}</p>
+            </div>
+        </div >`
+        document.getElementById("list").innerHTML += item;
+    })
+}
+
+window.onload = function () {
+    getList();
 }
