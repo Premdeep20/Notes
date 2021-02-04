@@ -54,14 +54,16 @@
     <div class="container">
         <form>
             <div class="col-100">
-                <input type="text" id="title" name="title" placeholder="Title">
+                <input type="text" id="title" name="title" placeholder="Title" oninput="changeTitle(event)">
             </div>
             <div class="col-100">
-                <textarea id="description" name="description" placeholder="Description" style="height:200px"></textarea>
+                <textarea id="description" name="description" placeholder="Description" style="height:200px"
+                    oninput="changeDescription(event)"></textarea>
             </div>
             <button class="submit">Submit</button>
         </form>
     </div>
-</body>
 
+</body>
+<script src="Notes.js"></script>
 </html>
