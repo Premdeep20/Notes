@@ -135,3 +135,36 @@ function edit() {
         }
     }
 }
+
+function search() {
+    document.getElementById("list").innerHTML = '<h1>List of Notes</h1><p>Loading...</p>';
+    let notes = JSON.parse(localStorage.getItem('NOTES'));
+    setTimeout(function () {
+        document.getElementById("list").innerHTML = '<h1>List of Notes</h1>';
+        if (notes && notes.length !== 0) {
+            const term = document.getElementById("search-note").value.toLowerCase();
+            let searchResult = notes.filter(note => {
+                return note.title.toLowerCase().includes(term);
+            });
+            if (searchResult.length > 0) {
+                searchResult.map((note, index) => {
+                    let item = `<div class="cardContainer">
+                    <div class="card">
+                        <h2>${note.title}</h2>
+                        <p>${note.description}</p>
+                        <div class="card-buttons-div">
+                        <p id="${note.title}" class="card-button" onclick="editNote(id,${index})">Edit</p>
+                        <p id="${note.title}" class="card-button" onclick="deleteNote(id)">Delete</p>
+                        </div>
+                    </div>
+                </div >`;
+                    document.getElementById("list").innerHTML += item;
+                })
+            } else {
+                document.getElementById("list").innerHTML += `<p>No notes found!</p>`;
+            }
+        } else {
+            document.getElementById("list").innerHTML += `<p>No notes found!</p>`;
+        }
+    }, 500)
+}
