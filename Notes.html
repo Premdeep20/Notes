@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Notes.css">
 </head>
 
@@ -16,6 +17,10 @@
                 oninput="changeDescription(event)"></textarea>
         </div>
         <button class="submit" onclick="submit()">Submit</button>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="Search Note" name="search-note">
+        <button ><i class="fa fa-search"></i></button>
     </div>
     <div id="list" class="list">
     </div>
