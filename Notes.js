@@ -40,17 +40,22 @@ function submit() {
 
 function getList() {
     let notes = JSON.parse(localStorage.getItem('NOTES'));
-    document.getElementById("list").innerHTML = '';
-    if (notes) {
+    document.getElementById("list").innerHTML = '<h1>List of Notes</h1>';
+    if (notes && notes.length !== 0) {
         notes.map((note) => {
             let item = `<div class="cardContainer">
             <div class="card">
                 <h2>${note.title}</h2>
                 <p>${note.description}</p>
+                <div class="card-buttons-div">
+                <p id="${note.title}" class="card-button" onclick="deleteNote(id)">Delete</p>
+                </div>
             </div>
         </div >`
             document.getElementById("list").innerHTML += item;
         })
+    } else {
+        document.getElementById("list").innerHTML += `<p>No notes found!</p>`;
     }
 }
 
@@ -60,4 +65,11 @@ window.onload = function () {
 
 function titleExists(notes, title) {
     return !!notes.find(note => note.title === title);
+}
+
+function deleteNote(id) {
+    let notes = JSON.parse(localStorage.getItem('NOTES'));
+    let newNotes = notes.filter(note => note.title !== id);
+    localStorage.setItem('NOTES', JSON.stringify(newNotes));
+    getList();
 }
