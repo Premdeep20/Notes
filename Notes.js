@@ -15,35 +15,49 @@ function submit() {
         alert('Please fill description!')
     } else {
         let notes = JSON.parse(localStorage.getItem('NOTES'));
-        let note = {
-            title: document.getElementById('title').value,
-            description: document.getElementById('description').value,
-        };
-        if (!notes) {
-            notes = [];
+        let exists = false;
+        if (notes) {
+            exists = titleExists(notes, document.getElementById('title').value);
         }
-        notes.push(note);
-        localStorage.setItem('NOTES', JSON.stringify(notes));
-        document.getElementById('title').value = '';
-        document.getElementById('description').value = '';
-        getList();
+        if (exists) {
+            alert('Title already exists');
+        } else {
+            let note = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+            };
+            if (!notes) {
+                notes = [];
+            }
+            notes.push(note);
+            localStorage.setItem('NOTES', JSON.stringify(notes));
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+            getList();
+        }
     }
 }
 
 function getList() {
     let notes = JSON.parse(localStorage.getItem('NOTES'));
     document.getElementById("list").innerHTML = '';
-    notes.map((note) => {
-        let item = `<div class="cardContainer">
+    if (notes) {
+        notes.map((note) => {
+            let item = `<div class="cardContainer">
             <div class="card">
                 <h2>${note.title}</h2>
                 <p>${note.description}</p>
             </div>
         </div >`
-        document.getElementById("list").innerHTML += item;
-    })
+            document.getElementById("list").innerHTML += item;
+        })
+    }
 }
 
 window.onload = function () {
     getList();
+}
+
+function titleExists(notes, title) {
+    return !!notes.find(note => note.title === title);
 }
