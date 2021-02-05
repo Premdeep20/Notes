@@ -50,7 +50,7 @@ textarea {
     word-break: break-word;
 }
 
-.list {
+.list,.search {
     width: 80%;
     margin: auto;
     padding: 20px;
@@ -93,18 +93,42 @@ textarea {
     .submit,
     .list,
     .edit,
-    .close {
+    .close,
+    .search {
         margin-top: 0;
     }
 
     .col-100,
     .submit,
-    .list {
+    .list,
+    .search {
         width: 100%;
     }
 
     .edit,
     .close {
-        width: 49%;
+        width: 48%;
     }
+}
+
+div.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 90%;
+    background: #f1f1f1;
+    border-radius: 0px;
+}
+
+div.search button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background:  #534caf;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
 }
